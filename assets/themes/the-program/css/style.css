@@ -3,7 +3,7 @@ HTML5 display definitions from [HTML5 Boilerplate](http://j.mp/rP0wmY)
 
 No styleguide reference.
 */
-article,
+article {text-align: justify;},   /* //text-align added by Jack */
 aside,
 details,
 figcaption,
@@ -723,7 +723,7 @@ pre {
 .unit-article li code {
   padding: 2px 5px;
   white-space: nowrap;
-  background-color: #fff04a;
+  background-color: #ABBEB2;  /* //edited by Jack, original #fff04a */
 }
 .unit-article img {
   display: block;
@@ -965,8 +965,8 @@ pre {
     height: 26px;
   }
   .the-header .unit-head .nav-global li a:hover {
-    background-color: #fff04a;
     color: #474747;
+    background-color: #ABBEB2;  /* //edited by Jack, original #fff04a */
   }
   .the-header .unit-head .nav-global li:nth-child(2) {
     border-width: 0 1px;
@@ -989,7 +989,7 @@ pre {
   }
 }
 /*
-	Not that old computer layout 
+	Not that old computer layout
 */
 @media only screen and (min-width: 1280px) {
   .the-header .unit-head .nav-global .logo {
@@ -1024,7 +1024,7 @@ pre {
   }
 }
 /*
-	Huge-screen layout 
+	Huge-screen layout
 */
 @media only screen and (min-width: 1410px) {
   .the-header {
