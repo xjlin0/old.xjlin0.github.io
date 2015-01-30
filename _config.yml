@@ -8,14 +8,14 @@ highlighter: pygments
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
-title : Jack Jack Attack
+title : Jack Jack Attack!
 tagline: Site Tagline
 author : Jack
 name : Jack
 email : xjlin0@gmail.com
 github : xjlin0
 twitter : xjlin0
-#  feedburner : feedname
+feedburner : feedname
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt

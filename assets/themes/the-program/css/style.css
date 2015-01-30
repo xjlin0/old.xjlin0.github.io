@@ -28,6 +28,12 @@ audio:not([controls]) {
 [hidden] {
   display: none;
 }
+
+.sidebyside {
+  display:inline-block;
+  vertical-align: top;
+}
+
 /*
 Base from [HTML5 Boilerplate](http://j.mp/rP0wmY)
 - Correct text resizing oddly in IE6/7 when body font-size is set using em units
@@ -551,7 +557,7 @@ html {
   background: url('/assets/themes/the-program/skin/100-90-5-monochrome.png');
   background-repeat: repeat;
   background-position: 0 0;
-  background-color: #e2e2de;
+  background-color: #e2e2de; /* // Jack edited origin was  #e2e2de  */
 }
 .body .unit-body {
   background-color: #fafafa;
