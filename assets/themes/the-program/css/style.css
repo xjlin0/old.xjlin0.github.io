@@ -1035,7 +1035,7 @@ pre {
 @media only screen and (min-width: 1410px) {
   .the-header {
     float: left;
-    width: 19%;
+    width: 16%;   /*  // Jack changed: original 19% */
   }
   .the-header .unit-head {
     padding: 26px;
@@ -1073,7 +1073,7 @@ pre {
     -moz-box-shadow: #ffffff 0px 0px 2px;
     -o-box-shadow: #ffffff 0px 0px 2px;
     float: left;
-    width: 81%;
+    width: 85%;  /* //Jack edited. original was 81% */
     margin-right: -450px;
   }
   .body .unit-body {
@@ -1091,7 +1091,7 @@ pre {
     display: block;
     float: left;
     padding: 26px 0 0 26px;
-    width: 420px;
+    width: 320px; /* //Jack edited. original was 81% */
   }
   .the-footer h4 {
     font-size: 30px;

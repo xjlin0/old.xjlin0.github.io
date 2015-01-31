@@ -10,7 +10,7 @@ tags: [Ruby, JavaScript, cache, Memoization]
 
 <div id="article">
 <p><a href="http://en.wikipedia.org/wiki/Memoization#Functional_programming">Memoization</a>, storing something in the memory, is very important in the functional programming to avoid repetitive calculation.  Such process, sometimes can be used as the cache mechanism, can save a lot of time, since the memory can be used as containers for expansive calculations or slow I/O results. Yesterday I read <a href="http://www.quora.com/What-are-some-cool-Ruby-tricks">a magic Ruby trick to realize the memoization</a> and would like to try here:</p>
-{% highlight ruby %}
+{% highlight ruby linenos %}
 Welcome to IRB. You are using ruby 2.0.0p576 (2014-09-19) [i386-cygwin]. Have fun ;)
 >> fact = Hash.new{ |h,k| h[k] = ( k<=1 ? 1 : k * h[k-1] ) }
 >> fact[400]  #=> instant result of factorial!
