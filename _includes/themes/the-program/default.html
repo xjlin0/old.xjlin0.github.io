@@ -11,6 +11,7 @@
 	<link href='{{ ASSET_PATH }}/css/style.css' rel="stylesheet" media="all">
 	<link href="http://feeds.feedburner.com/{{ site.author.feedbaname }}" rel="alternate" title="{{ page.title }}" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+		{% include my_google_search.html %} <!-- Jack added for searching -->
 </head>
 <body>
 
@@ -28,6 +29,7 @@
 						<!-- <li class="forkme"><div><iframe src="https://github.com/mdo/github-buttons/blob/master/github-btn.html?user=plusjade&repo=jekyll-bootstrap&type=fork&count=true"
 									allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe></div></li>
 									<!-- origin: src="http://markdotto.github.com/github-buttons/github-btn.html?user=plusjade&repo=jekyll-bootstrap&type=fork&count=true"  edited by Jack: didn't work -->
+						<li><div><span><form onsubmit="my_search_google()" ><input type="text" id="my-google-search" placeholder="search"></form></span></div></li> <!-- my custom google search -->
 					</ul>
 				</nav>
 			</div><!-- unit-inner -->
@@ -51,11 +53,11 @@
 						<li class="contact"><address><span class="author fn n">{{ site.author.name }}</span> - <span class="fn email"><a href="mailto:{{ site.author.email }}?Subject=Hello%20Jack" target="_top">{{ site.author.email }}</a></span></address></li>
 						<li class="github"><a href="http://github.com/{{ site.author.github }}/" rel="me">github.com/{{ site.author.github }}</a></li>
 						<li class="twitter"><a href="http://twitter.com/{{ site.author.twitter }}/" rel="me">twitter.com/{{ site.author.twitter }}</a></li>
-						<li class="rss"><a href="http://feeds.feedburner.com/{{ site.author.feedname }}">Subscribe to RSS Feed</a></li>
+						<!-- <li class="rss"><a href="http://feeds.feedburner.com/{{ site.author.feedname }}">Subscribe to RSS Feed</a></li> Jack commented out-->
 					</ul>
 				</div><!-- misc -->
 				<p class="licence">
-					Theme: <a href="http://themes.jekyllbootstrap.com/preview/the-program/">the_program</a> based on <a href="http://jekyllbootstrap.com/">Jekyll-bootstrap</a>.<br>
+					Modified from <a href="http://themes.jekyllbootstrap.com/preview/the-program/">the_program theme</a> based on <a href="http://jekyllbootstrap.com/">Jekyll-bootstrap</a>.<br>
 					Powered by <a href="http://jekyllrb.com/">Jekyll</a>.
 				</p>
 			</div><!-- unit-foot-inner -->

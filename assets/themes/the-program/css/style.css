@@ -3,6 +3,19 @@ HTML5 display definitions from [HTML5 Boilerplate](http://j.mp/rP0wmY)
 
 No styleguide reference.
 */
+
+/*li>div{
+    display: table;
+    height: 100%;
+    width: 80%;
+}
+li>span{
+    display: table-cell;
+    vertical-align: middle;
+} */
+
+
+
 article {text-align: justify;},   /* //text-align added by Jack */
 aside,
 details,
@@ -262,6 +275,7 @@ textarea {
 button,
 input {
   line-height: normal;
+  width: 100%;  /*Jack added for search input form*/
 }
 /*
  * 1. Display hand cursor for clickable form elements

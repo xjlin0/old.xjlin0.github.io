@@ -69,7 +69,7 @@ origin  git@github.com:xjlin0/xjlin0.github.io.git (push)
 xjlin0.github.io [master] :> git push origin master
 Permission denied (publickey).
 xjlin0.github.io [master] :> git remote set-url origin https://github.com/xjlin0/xjlin0.github.io.git  #==>works for push
-I. yaml working format for liquid {{ {{ site.author.name }} }}
+I. yaml working format for liquid syntax  {% raw  %}{{ site.author.name }}{% endraw %}
 author :   (left blank)
   name : whatever_name
   email :   whatever_email
