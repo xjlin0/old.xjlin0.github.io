@@ -1087,7 +1087,7 @@ pre {
     -moz-box-shadow: #ffffff 0px 0px 2px;
     -o-box-shadow: #ffffff 0px 0px 2px;
     float: left;
-    width: 85%;  /* //Jack edited. original was 81% */
+    width: 83%;  /* //Jack edited. original was 81% */
     margin-right: -450px;
   }
   .body .unit-body {
@@ -1105,7 +1105,7 @@ pre {
     display: block;
     float: left;
     padding: 26px 0 0 26px;
-    width: 320px; /* //Jack edited. original was 81% */
+    width: 350px; /* //Jack edited. original was 420px? */
   }
   .the-footer h4 {
     font-size: 30px;
