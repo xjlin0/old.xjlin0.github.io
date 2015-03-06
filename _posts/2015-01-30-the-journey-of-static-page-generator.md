@@ -74,4 +74,6 @@ author :   (left blank)
   name : whatever_name
   email :   whatever_email
 _includes/themes/the-program/default.html
+
+J.  jekyll serve
 ```
