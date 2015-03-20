@@ -23,3 +23,59 @@ Install    | rails generate devise:install | rails generate clearance:install
 |Track/log  |   Yes                         | nil
 | testing   |  Test helpers                 | yes with factory_girl_rails
 |           |                               |(rails generate clearance:specs)
+
+<hr>
+
+
+{% highlight %}
+rails new clearance -B
+echo "gem 'clearance'" >> clearance/Gemfile
+echo "gem 'bcrypt'"      >> clearance/Gemfile
+echo "gem 'faker'"       >> clearance/Gemfile
+cd clearance && bundle install
+rails generate scaffold User username email password password_digest
+echo "class User < ActiveRecord::Base" > app/models/user.rb
+echo "  has_secure_password"          >> app/models/user.rb
+echo "end"                            >> app/models/user.rb
+rake db:migrate
+echo "10.times { User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: 'password') }" >> db/seeds.rb
+rake db:seed
+rails generate clearance:install
+rake db:migrate
+open http://localhost:3000/users/
+rails s
+
+{% endhighlight %}
+
+Clearance post installation
+*******************************************************************************
+
+Next steps:
+
+1. Configure the mailer to create full URLs in emails:
+
+    # config/environments/{development,test}.rb
+    config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+    In production it should be your app's domain name.
+
+2. Display user session and flashes. For example, in your application layout:
+
+    <% if signed_in? %>
+      Signed in as: <%= current_user.email %>
+      <%= button_to 'Sign out', sign_out_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign in', sign_in_path %>
+    <% end %>
+
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
+3. Migrate:
+
+    rake db:migrate
+
+*******************************************************************************
