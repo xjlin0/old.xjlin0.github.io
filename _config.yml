@@ -5,7 +5,9 @@ permalink: /:categories/:year/:month/:day/:title
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 highlighter: pygments
 # pygments: true  #causing error
-markdown: redcarpet #Jack added: this is required for MD fenced code block ``` code ```
+markdown: redcarpet
+redcarpet:
+  extensions: ["fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
