@@ -27,7 +27,7 @@ Install    | rails generate devise:install | rails generate clearance:install
 <hr>
 
 
-{% highlight %}
+{% highlight ruby %}
 rails new clearance -B
 echo "gem 'clearance'" >> clearance/Gemfile
 echo "gem 'bcrypt'"      >> clearance/Gemfile
