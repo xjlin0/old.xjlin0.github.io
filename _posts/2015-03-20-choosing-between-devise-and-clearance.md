@@ -26,7 +26,9 @@ Install    | rails generate devise:install | rails generate clearance:install
 
 <hr>
 
+### a great tutorial of Device can be found on [Ruby girls](http://guides.railsgirls.com/devise/)
 
+### Here's how I setup the clearance
 {% highlight ruby %}
 rails new clearance -B
 echo "gem 'clearance'" >> clearance/Gemfile
