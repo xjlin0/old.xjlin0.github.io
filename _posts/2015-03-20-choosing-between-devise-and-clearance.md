@@ -15,7 +15,7 @@ Gem names   |  ***[plataformatec's_Device](https://github.com/plataformatec/devi
 Install    | rails generate devise:install | rails generate clearance:install
            | rails generate devise MODEL   |   (create migration for you)
 |other Auth|    by OmniAuth                | nil
-|mailComfirm|    bkg ActiveJob/ActionMailer |  bkg ([deliver_later](http://edgeapi.rubyonrails.org/classes/ActionMailer/MessageDelivery.html#method-i-deliver_later))
+|mailComfirm|    bkg ActiveJob/ActionMailer |  bkg ([deliver_later/ActionMailer](http://edgeapi.rubyonrails.org/classes/ActionMailer/MessageDelivery.html#method-i-deliver_later))
 |PassWdReset| Recoverable&Confirmable       | Yes
 |Session    |cookie Timeoutable&Rememberable| Yes (by Rack session)
 |Sign-up    |Validatable & Lockable         |    SignInGuard
@@ -40,10 +40,17 @@ echo "10.times { User.create(username: Faker::Internet.user_name, email: Faker::
 rake db:migrate
 rails generate clearance:install
 rake db:migrate
+rails generate mailer UserMailer
+rake db:migrate
 rake db:seed
-open http://localhost:3000/users/
+open http://localhost:3000/users
 rails s
+clear
+echo 'Please patch config and then db migrate before restart rails server'
 {% endhighlight %}
+
+[Don't forget to change local mailing setting if it's on localhost](http://blog.anupamsg.me/2012/02/14/enabling-postfix-for-outbound-relay-via-gmail-on-os-x-lion-11/)
+
 <pre>
 Clearance post installation
 *******************************************************************************
