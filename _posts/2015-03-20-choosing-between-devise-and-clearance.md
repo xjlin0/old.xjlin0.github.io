@@ -26,7 +26,7 @@ Install    | rails generate devise:install | rails generate clearance:install
 
 <hr>
 
-### a great tutorial of Device can be found on [Ruby girls](http://guides.railsgirls.com/devise/)
+### [Hre is a great tutorial of Device can be found on Ruby girls](http://guides.railsgirls.com/devise/)
 
 ### Here's how I setup the clearance
 {% highlight ruby %}
@@ -35,20 +35,16 @@ echo "gem 'clearance'" >> clearance/Gemfile
 echo "gem 'bcrypt'"      >> clearance/Gemfile
 echo "gem 'faker'"       >> clearance/Gemfile
 cd clearance && bundle install
-rails generate scaffold User username email password password_digest
-echo "class User < ActiveRecord::Base" > app/models/user.rb
-echo "  has_secure_password"          >> app/models/user.rb
-echo "end"                            >> app/models/user.rb
+rails generate scaffold User username email password
+echo "10.times { User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: '1') }" >> db/seeds.rb
 rake db:migrate
-echo "10.times { User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: 'password') }" >> db/seeds.rb
-rake db:seed
 rails generate clearance:install
 rake db:migrate
+rake db:seed
 open http://localhost:3000/users/
 rails s
-
 {% endhighlight %}
-
+<pre>
 Clearance post installation
 *******************************************************************************
 
@@ -81,3 +77,4 @@ Next steps:
     rake db:migrate
 
 *******************************************************************************
+</pre>
