@@ -3,7 +3,7 @@ layout: post
 title: "choosing between devise and clearance"
 description: "user authentication comes handy"
 category: tech
-tags: [gem, rails]
+tags: [gem, Rails]
 ---
 {% include JB/setup %}
 ### These gems can really help your rails app on user control <img src="/assets/imgs/users.jpg"  alt="major incrediable roles" width="20%"/>
