@@ -21,7 +21,7 @@ Babun system will finish the installation within a few minutes, and bring you it
 If you don't have time and need Ruby and Node.js now (especially for phase 0 DBC students), just execute the following commands to have Ruby 2.0, Rails 4.0, the latest Sinatra and Node 0.4.12. It's enough to cover the entire DBC phase 0~2.  Under Babun shell, please enter:
 {% highlight ruby %}
 babun update
-pact install ruby ruby-nokogiri ruby-rails ruby-pg libxml2-devel libxslt-devel gcc-g++ patch
+pact install ruby ruby-nokogiri ruby-rails ruby-pg libxml2-devel libxslt-devel gcc-g++ patch sqlite3
 gem install sinatra
 gem install shotgun
 {% endhighlight %}
@@ -68,4 +68,4 @@ make
 make install
 {% endhighlight %}
 
-If you need more modern versions, <a href="http://soyuka.me/using-nodejs-with-cygwin-v0-10-25/">soyuka's methods works by connecting windows native binaries to Cygwin</a>, and <a href="https://github.com/babun/babun/issues/216">it works for Babun when using with Console 2</a>.
+If you need more modern versions, <a href="http://soyuka.me/using-nodejs-with-cygwin-v0-10-25/">soyuka's methods works by connecting windows native binaries to Cygwin</a>, and <a href="https://github.com/babun/babun/issues/216">it works for Babun</a>, not sure if Console 2 is still required in the fabulous Babun 1.1.
