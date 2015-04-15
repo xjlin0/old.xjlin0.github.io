@@ -21,7 +21,7 @@ Babun system will finish the installation within a few minutes, and bring you it
 If you don't have time and need Ruby and Node.js now (especially for phase 0 DBC students), just execute the following commands to have Ruby 2.0, Rails 4.0, the latest Sinatra and Node 0.4.12. It's enough to cover the entire DBC phase 0~2.  Under Babun shell, please enter:
 {% highlight ruby %}
 babun update
-pact install ruby ruby-nokogiri ruby-rails ruby-pg libxml2-devel libxslt-devel gcc-g++ patch sqlite3
+pact install ruby ruby-nokogiri ruby-rails ruby-pg libxml2-devel libxslt-devel gcc-g++ patch sqlite3 postgresql
 gem install sinatra
 gem install shotgun
 {% endhighlight %}
