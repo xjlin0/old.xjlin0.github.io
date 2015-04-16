@@ -15,7 +15,7 @@ tags: [Ruby, Rails, Node]
 {% highlight console %}
 install.bat /t "c:/"
 {% endhighlight %}
-Babun system will finish the installation within a few minutes, and bring you its default terminal under zsh.
+Babun system will finish the installation within a few minutes, and bring you its default terminal under zsh.  One of my favorite things is X-window style mouse copying/pasting, <em><strong>in Babun the mouse selected text in shell is immediately copied, you can then paste by mouse right-clicking</strong></em>.
 <hr>
 ### Quick and short steps for beginners
 If you don't have time and need Ruby and Node.js now (especially for phase 0 DBC students), just execute the following commands to have Ruby 2.0, Rails 4.0, the latest Sinatra and Node 0.4.12. It's enough to cover the entire DBC phase 0~2.  Under Babun shell, please enter:
