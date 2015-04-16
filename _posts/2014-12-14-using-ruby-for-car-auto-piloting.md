@@ -47,7 +47,7 @@ Welcome to IRB. You are using ruby 2.0.0p576 (2014-09-19) [i386-cygwin]. Have fu
 
 <p>Cool, we just drive through land C cpath[0] to land B bpath[1]. When drive to the end of bpath[1], should we change to lane A or lane C? Let's make a decision now:</p>
 
-{% highlight ruby %}
+{% highlight irb %}
 > apath.each{ |x| p x if x.include?bpath[1].max }   #nothing! don't go lane A
 > cpath.each{ |z| p z if z.include?bpath[1].max }
 [8, 9, 10]    #Great! there's a way on lane C

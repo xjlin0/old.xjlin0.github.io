@@ -29,7 +29,7 @@ Install    | rails generate devise:install | rails generate clearance:install
 ### [Hre is a great tutorial of Device can be found on Ruby girls](http://guides.railsgirls.com/devise/)
 
 ### Here's how I setup the clearance
-{% highlight ruby %}
+{% highlight sh %}
 rails new clearance -B
 echo "gem 'clearance'" >> clearance/Gemfile
 echo "gem 'bcrypt'"      >> clearance/Gemfile
