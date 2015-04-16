@@ -15,10 +15,10 @@ tags: [Ruby, Rails, Node]
 {% highlight console %}
 install.bat /t "c:/"
 {% endhighlight %}
-Babun system will finish the installation within a few minutes, and bring you its default terminal under zsh.  One of my favorite things is X-window style mouse copying/pasting, <em><strong>in Babun the mouse selected text in shell is immediately copied, you can then paste by mouse right-clicking</strong></em>.
+Babun system will finish the installation within a few minutes, and bring you its default terminal under zsh.  One of my favorite things is X-window style mouse copying/pasting, <em><strong>in Babun the mouse selected text in the terminal is immediately copied, you can then paste by mouse right-clicking</strong></em>.
 <hr>
 ### Quick and short steps for beginners
-If you don't have time and need Ruby and Node.js now (especially for phase 0 DBC students), just execute the following commands to have Ruby 2.0, Rails 4.0, the latest Sinatra and Node 0.4.12. It's enough to cover the entire DBC phase 0~2.  Under Babun shell, please enter:
+If you don't have time and need Ruby and Node.js now (especially for phase 0 DBC students), just execute the following commands to have Ruby 2.0, Rails 4.0, the latest Sinatra and Node 0.4.12. It's enough to cover the entire DBC phase 0~2.  Under Babun terminal, please enter:
 {% highlight sh %}
 babun update
 pact install ruby ruby-nokogiri ruby-rails ruby-pg libxml2-devel libxslt-devel gcc-g++ patch sqlite3 postgresql
@@ -43,7 +43,7 @@ gem install rails
 wget -qO- https://toolbelt.heroku.com/install.sh | sh
 echo 'PATH="/usr/local/heroku/bin:$PATH"' >> ~/.zshrc
 {% endhighlight %}
-That's it! enjoy your free, full-functional POSIX environment under MS windows without deleting any of your files, in minutes.
+That's it! enjoy your free, full-functional POSIX environment under MS windows without deleting any of your files or repartitioning your drive, in minutes.
 <hr>
 ## Installation of rbenv and Ruby 2.2
 Please follow the official guide of rbenv to install <a href="https://github.com/sstephenson/rbenv">rbenv</a> and <a href="https://github.com/sstephenson/ruby-build">ruby-build plugin</a>.  It's a pity that I haven't figure out how to use <a href="http://getrbenv.com/">getrbenv.com</a> on Babun/zsh to replace the following steps.
