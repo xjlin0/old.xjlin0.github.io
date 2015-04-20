@@ -10,7 +10,7 @@ tags: [gem, Rails]
 
 <hr>
 
-Gem names   |  ***[plataformatec's_Device](https://github.com/plataformatec/devise)***   |  ***[thoughtbot's Clearance](https://github.com/thoughtbot/clearance)***  |
+Gem names   |  ***[plataformatec's_Devise](https://github.com/plataformatec/devise)***   |  ***[thoughtbot's Clearance](https://github.com/thoughtbot/clearance)***  |
 :--------- |:----------------------------: | :--------------------------: |Summary    | MVC/10modules&more extentions |    small & simple
 Install    | rails generate devise:install | rails generate clearance:install
            | rails generate devise MODEL   |   (create migration for you)
@@ -26,7 +26,7 @@ Install    | rails generate devise:install | rails generate clearance:install
 
 <hr>
 
-### [Hre is a great tutorial of Device can be found on Ruby girls](http://guides.railsgirls.com/devise/)
+### [Hre is a great tutorial of Devise can be found on Ruby girls](http://guides.railsgirls.com/devise/)
 
 ### Here's how I setup the clearance
 {% highlight sh %}
