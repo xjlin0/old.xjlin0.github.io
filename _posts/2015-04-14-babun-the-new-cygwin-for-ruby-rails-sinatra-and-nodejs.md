@@ -24,6 +24,7 @@ babun update
 pact install ruby ruby-nokogiri ruby-rails ruby-pg libpq-devel libxml2-devel libxslt-devel gcc-g++ patch sqlite3 postgresql
 gem install pg sinatra shotgun rails
 {% endhighlight %}
+(Note: Some gems, such as Puma or Turbolinks are not compatible with these settings as of now. Solution will be provided if there's a working one.)
 
 Finally, install the old faithful Node.js 0.4.12, according to <a href="https://github.com/babun/babun/issues/216">Lukasz P</a> and <a href="https://github.com/joyent/node/wiki/Installation#building-on-cygwin">Joyent's suggestion</a>.
 {% highlight sh %}
@@ -43,6 +44,21 @@ wget -qO- https://toolbelt.heroku.com/install.sh | sh
 echo 'PATH="/usr/local/heroku/bin:$PATH"' >> ~/.zshrc
 {% endhighlight %}
 That's it! enjoy your free, full-functional POSIX environment under MS windows without deleting any of your files or repartitioning your drive, in minutes.
+<hr>
+### Some tips for PostgreSQL service under Babun / Cygwin
+PostgreSQL service is slow but still works under Babun if you follow the following steps to start the service. Basically these are just the steps described in /usr/share/doc/Cygwin/postgresql.README, and you may want to include /usr/sbin in the path.
+{% highlight sh %}
+cygrunsrv -S cygserver
+/usr/sbin/initdb.exe -D /usr/share/postgresql/data
+/usr/sbin/pg_ctl start -D /usr/share/postgresql/data -l /var/log/postgresql.log
+createdb
+{% endhighlight %}
+You may now use psql to check your PostgreSQL service.  To stop the PostgreSQL service:
+{% highlight sh %}
+/usr/sbin/pg_ctl -D /usr/share/postgresql/data -l logfile stop 
+cygrunsrv -E cygserver 
+{% endhighlight %}
+And you may also want to remove the data (/usr/share/postgresql/data).
 <hr>
 ## Installation of rbenv and Ruby 2.2
 Please follow the official guide of rbenv to install <a href="https://github.com/sstephenson/rbenv">rbenv</a> and <a href="https://github.com/sstephenson/ruby-build">ruby-build plugin</a>.  It's a pity that I haven't figure out how to use <a href="http://getrbenv.com/">getrbenv.com</a> on Babun/zsh to replace the following steps.
