@@ -22,9 +22,7 @@ If you don't have time and need Ruby and Node.js now (especially for phase 0 DBC
 {% highlight sh %}
 babun update
 pact install ruby ruby-nokogiri ruby-rails ruby-pg libpq-devel libxml2-devel libxslt-devel gcc-g++ patch sqlite3 postgresql
-gem install pg
-gem install sinatra
-gem install shotgun
+gem install pg sinatra shotgun rails
 {% endhighlight %}
 
 Finally, install the old faithful Node.js 0.4.12, according to <a href="https://github.com/babun/babun/issues/216">Lukasz P</a> and <a href="https://github.com/joyent/node/wiki/Installation#building-on-cygwin">Joyent's suggestion</a>.
@@ -37,7 +35,7 @@ make
 make install
 {% endhighlight %}
 
-Later (say, phase 3) you may need more updated version of Rails (>=4.2.1) and Heroku toolbelt:
+If you got some errors about nokogiri error, or later (say, phase 3), you may need more updated version of Rails (>=4.2.1) and Heroku toolbelt:
 {% highlight sh %}
 gem install nokogiri -- --use-system-libraries
 gem install rails
