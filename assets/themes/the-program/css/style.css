@@ -13,8 +13,8 @@ li>span{
     display: table-cell;
     vertical-align: middle;
 } */
-
-
+.social {  font-size: 1px; }             /* trying to align google +1 bottons by Jack */
+.social iframe,.social>span {vertical-align: middle;}  /* trying to align facebook like bottons by Jack  http://www.reinisfischer.com/how-align-facebook-google-and-twitter-buttons */
 
 article {text-align: justify;},   /* //text-align added by Jack */
 aside,

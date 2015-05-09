@@ -31,7 +31,7 @@ author :
   github : xjlin0
   twitter : xjlin0
   feedburner : feedname
-
+  linkedin : Jack0
 #twitter_username: xjlin0 didn't work
 #github_username: xjlin0 didn't work
 # The production_url is only used when full-domain names are needed
@@ -132,7 +132,7 @@ JB :
   # Set 'provider' to false to turn sharing off globally.
   #
   sharing :
-    provider : false
+    provider : tweet plusone like reddit
 
   # Settings for all other include helpers can be defined by creating
   # a hash with key named for the given helper. ex:
