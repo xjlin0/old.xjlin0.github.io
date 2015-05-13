@@ -22,7 +22,7 @@ If you don't have time and need Ruby and Node.js now (especially for phase 0 DBC
 {% highlight sh %}
 babun update
 pact install ruby ruby-nokogiri ruby-rails ruby-pg libpq-devel libxml2-devel libxslt-devel gcc-g++ patch sqlite3 postgresql
-gem install pg sinatra shotgun rails
+gem install pg sinatra shotgun rails rspec
 {% endhighlight %}
 (Note: Some gems, such as Puma or Turbolinks are not compatible with these settings as of now. Solution will be provided if there's a working one.)
 
@@ -55,8 +55,8 @@ createdb
 {% endhighlight %}
 You may now use psql to check your PostgreSQL service.  To stop the PostgreSQL service:
 {% highlight sh %}
-/usr/sbin/pg_ctl -D /usr/share/postgresql/data -l logfile stop 
-cygrunsrv -E cygserver 
+/usr/sbin/pg_ctl -D /usr/share/postgresql/data -l logfile stop
+cygrunsrv -E cygserver
 {% endhighlight %}
 And you may also want to remove the data (/usr/share/postgresql/data).
 <hr>
