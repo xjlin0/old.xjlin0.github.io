@@ -75,5 +75,6 @@ author :   (left blank)
   email :   whatever_email
 _includes/themes/the-program/default.html
 
-J.  jekyll serve
+J.  rake post title="Hello World" or rake page name="about.md"
+K.  jekyll serve #to start local server for browsing
 ```
