@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "choosing between devise and clearance"
+title: "Choosing between devise and clearance"
 description: "user authentication comes handy"
 category: tech
 tags: [gem, Rails]
@@ -26,9 +26,10 @@ Install    | rails generate devise:install | rails generate clearance:install
 
 <hr>
 
-### [Hre is a great tutorial of Devise can be found on Ruby girls](http://guides.railsgirls.com/devise/)
+### Devise
+[Here is a great tutorial of Devise can be found on Ruby girls](http://guides.railsgirls.com/devise/). [Or you can use Rais Composer to install Devise on a new Rails project](http://railsapps.github.io/rails-composer/) by the command <code>rails new myapp -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb</code>
 
-### Here's how I setup the clearance
+### Clearance: Here's how I setup it
 {% highlight sh %}
 rails new clearance -B
 echo "gem 'clearance'" >> clearance/Gemfile
