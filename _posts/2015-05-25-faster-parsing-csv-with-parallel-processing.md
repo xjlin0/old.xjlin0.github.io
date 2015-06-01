@@ -50,3 +50,7 @@ end
 {% endhighlight %}
 
 In the above example, the records in the huge csv file are parsed as hashes, with the CSV header as keys.  Smarter_csv actually group these hashes into arrays, 1000 hashes/records per array in this example. I then pass the array (chunk) using another fabulous gem <a href="http://github.com/grosser/parallel">parallel</a>. In such way a huge CSV is sliced into chunks of 1000 records and assign to workers for parallel processing, without queuing by <a href="http://redis.io">Redis</a>. One trick mentioned by <a href="http://ruby.zigzo.com/2012/01/29/the-parallel-gem-and-postgresql-oh-and-rails/">Mario</a>, is to reconnect the database since PostgreSQL does not allow using the same connection for more than one thread.
+
+<hr>
+
+Wanna go multi-threading in the browser side too?  If you got a CPU intensive JavaScript to run, please utilize <a href="http://www.w3schools.com/html/html5_webworkers.asp">HTML5 Web Workers</a> to free up browsers!
