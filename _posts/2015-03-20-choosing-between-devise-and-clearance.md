@@ -27,7 +27,7 @@ Install    | rails generate devise:install | rails generate clearance:install
 <hr>
 
 ### Devise
-[Here is a great tutorial of Devise can be found on Ruby girls](http://guides.railsgirls.com/devise/). [Or you can use Rais Composer to install Devise on a new Rails project](http://railsapps.github.io/rails-composer/) by the command <code>rails new myapp -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb</code>
+[Here is a great tutorial of Devise can be found on Ruby girls](http://guides.railsgirls.com/devise/). [Or you can use Rais Composer to install Devise on a new Rails project](http://railsapps.github.io/rails-composer/) by the command <code>rails new myapp -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb</code>. Alternatively, you can [install ActiveAdmin gem](http://activeadmin.info), which will automatically install Devise for you.
 
 ### Clearance: Here's how I setup it
 {% highlight sh %}
