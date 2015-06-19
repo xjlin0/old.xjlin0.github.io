@@ -6,7 +6,7 @@ category: tech
 tags: [Ruby, Spark, Python, OSX]
 ---
 {% include JB/setup %}
-### Install Apache Spark with Python or Ruby-Spark in Yosemite <img src="/assets/imgs/spark.jpg"  alt="Syndrome making spark" width="20%"/>
+### Enjoy the power of the spark in local REPL shell, including Ruby. <img src="/assets/imgs/spark.jpg"  alt="Syndrome making spark" width="20%"/>
 
 Recently joined the <a href="https://www.edx.org/course/introduction-big-data-apache-spark-uc-berkeleyx-cs100-1x">"EdX's BerkeleyX  CS 100.1X: Introduction to Big Data with Apache Spark"</a> , I am excited to know there's so much we can do with this cluster computing framework.   Here is how I followed <a href="http://sourabhbajaj.com/mac-setup/Vagrant/README.html">Sourabh Bajaj's tutorial</a> to setup Virtual Box and Vagrant, to extract and run <a href="https://github.com/spark-mooc/mooc-setup/archive/master.zip">the course Vagrantfile</a>. Then a command like <code>vagrant up --provider=virtualbox</code> will get you the complete environment accessible from <a href="http://ipython.org/notebook.html">IPython Notebook</a> within browsers.
 
