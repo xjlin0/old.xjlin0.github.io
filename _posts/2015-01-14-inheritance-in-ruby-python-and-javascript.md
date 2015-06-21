@@ -32,7 +32,7 @@ tags: [Ruby, Python, JavaScript, inheritance, OOP]
   >> rob.wear_uniform #=> "The red and black looked so nice!"
 {% endhighlight %}
 
-  <p>In Python, we can create instance by defining custom factory function.  If a class is defined, you can create an instance by <code> intance = Class() </code>. Python interpreter will actually call <code>Class().method(instance)</code> and excute method defined in that class.  Don't forget to include <code>self</code> in the defination of methods so Python knows which instance to pass for excuting the method.
+  <p>In Python, we can create instance by defining custom factory function.  If a class is defined, you can create an instance by <code> instance = Class() </code>. Python interpreter will actually call <code>Class().method(instance)</code> and execute method defined in that class.  Don't forget to include <code>self</code> in the definition of methods so Python knows which instance to pass for executing the method.
 
  {% highlight python %}
 Python 2.7.9 shell
