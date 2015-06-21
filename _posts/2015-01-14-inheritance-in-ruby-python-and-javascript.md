@@ -13,14 +13,14 @@ tags: [Ruby, Python, JavaScript, inheritance, OOP]
  {% highlight ruby %}
   Welcome to IRB. You are using ruby 2.0.0p576 (2014-09-19) [i386-cygwin]. Have fun ;)
   >> class Supermen
-    def fast_moving
-      "Shuuooo ..........you just moved!"
-    end
+      def fast_moving
+        "Shuuooo ..........you just moved!"
+      end
   >> end
   >> class Incredibles < Supermen
-    def wear_uniform
-      "The red and black looked so nice!"
-    end
+      def wear_uniform
+        "The red and black looked so nice!"
+      end
   >> end
 
   >> clark = Superman.new
