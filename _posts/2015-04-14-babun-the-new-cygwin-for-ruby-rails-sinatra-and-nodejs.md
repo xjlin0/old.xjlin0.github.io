@@ -22,7 +22,7 @@ If you don't have time and need Ruby and Node.js now (especially for phase 0 DBC
 {% highlight sh %}
 babun update
 pact install ruby ruby-nokogiri ruby-rails ruby-pg libpq-devel libxml2-devel libxslt-devel gcc-g++ patch sqlite3 postgresql
-gem install pg sinatra shotgun rails
+gem install pg sinatra shotgun rails rspec
 {% endhighlight %}
 (Note: Some gems, such as Puma or Turbolinks are not compatible with these settings as of now. Solution will be provided if there's a working one.)
 
@@ -43,11 +43,28 @@ gem install rails
 wget -qO- https://toolbelt.heroku.com/install.sh | sh
 echo 'PATH="/usr/local/heroku/bin:$PATH"' >> ~/.zshrc
 {% endhighlight %}
-That's it! enjoy your free, full-functional POSIX environment under MS windows without deleting any of your files or repartitioning your drive, in just minutes.
+That's it! enjoy your free, full-functional POSIX environment under MS windows without deleting any of your files or repartitioning your drive, in minutes.
+
+<hr>
+### Some tips for PostgreSQL service under Babun / Cygwin
+PostgreSQL service is slow but still works under Babun if you follow the following steps to start the service. Basically these are just the steps described in /usr/share/doc/Cygwin/postgresql.README, and you may want to include /usr/sbin in the path.
+{% highlight sh %}
+cygrunsrv -S cygserver
+/usr/sbin/initdb.exe -D /usr/share/postgresql/data
+/usr/sbin/pg_ctl start -D /usr/share/postgresql/data -l /var/log/postgresql.log
+createdb
+{% endhighlight %}
+You may now use psql to check your PostgreSQL service.  To stop the PostgreSQL service:
+{% highlight sh %}
+/usr/sbin/pg_ctl -D /usr/share/postgresql/data -l logfile stop
+cygrunsrv -E cygserver
+{% endhighlight %}
+And you may also want to remove the data (/usr/share/postgresql/data).
+
 <hr>
 ## Installation of rbenv and Ruby 2.2
 
-<a href="http://getrbenv.com/">getrbenv installer</a> is a super easy tool to install different ruby versions. However the current master might need a suttle update to fit zsh used in Babun.  Here is my workaround to install rbenv with ruby-build and rbenv-update plugin painlessly. Sould you have different needs, please follow the official guide of rbenv to install <a href="https://github.com/sstephenson/rbenv">rbenv</a>.
+<a href="http://getrbenv.com/">getrbenv installer</a> is a super easy tool to install different ruby versions. However the current master might need a suttle update to fit zsh used in Babun.  Here is my workaround to install rbenv with ruby-build and rbenv-update plugin painlessly. Sould you have different needs, please follow the official guide of rbenv to install <a href="https://github.com/sstephenson/rbenv">rbenv</a>. Let's start with old faithful Ruby 2.0.0 because many apps are still using it.
 {% highlight sh %}
 cd
 curl -sSL https://raw.githubusercontent.com/xjlin0/getrbenv-installer/master/bin/install.sh | bash -s -- --rubies 2.0.0-p645 --plugins sstephenson/ruby-build,rkh/rbenv-update

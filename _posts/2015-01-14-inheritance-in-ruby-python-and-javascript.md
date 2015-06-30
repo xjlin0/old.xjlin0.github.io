@@ -1,26 +1,26 @@
 ---
 layout: post
-title: "Inheritance in Ruby and JavaScript"
+title: "Inheritance in Ruby, Python and JavaScript"
 description: "OOP in two languages"
 category: tech
-tags: [Ruby, JavaScript, inheritance]
+tags: [Ruby, Python, JavaScript, inheritance, OOP]
 ---
 {% include JB/setup %}
-### OOP in two languages <img src="/assets/imgs/iclass.jpg"  alt="BabyFacingKariFocused" width="20%"/>
+### OOP in three languages <img src="/assets/imgs/iclass.jpg"  alt="BabyFacingKariFocused" width="20%"/>
 <div id="article">
   <p>Ruby is a class-based language, thus it is straightforward to create objects in classes for inheritance as described in my previous posts. However, it takes some steps to mimic classes in JavaScript, which is a prototype-based language.  Let's do some comparison.  Here is how we do inheritance in Ruby:</p>
 
  {% highlight ruby %}
   Welcome to IRB. You are using ruby 2.0.0p576 (2014-09-19) [i386-cygwin]. Have fun ;)
   >> class Supermen
-    def fast_moving
-      "Shuuooo ..........you just moved!"
-    end
+      def fast_moving
+        "Shuuooo ..........you just moved!"
+      end
   >> end
   >> class Incredibles < Supermen
-    def wear_uniform
-      "The red and black looked so nice!"
-    end
+      def wear_uniform
+        "The red and black looked so nice!"
+      end
   >> end
 
   >> clark = Superman.new
@@ -31,6 +31,30 @@ tags: [Ruby, JavaScript, inheritance]
   >> rob.fast_moving #=> "Shuuooo ..........you just moved!"
   >> rob.wear_uniform #=> "The red and black looked so nice!"
 {% endhighlight %}
+
+  <p>In Python, we can create instance by defining custom factory function.  If a class is defined, you can create an instance by <code> instance = Class() </code>. Python interpreter will actually call <code>Class().method(instance)</code> and execute method defined in that class.  Don't forget to include <code>self</code> in the definition of methods so Python knows which instance to pass for executing the method.
+
+ {% highlight python %}
+Python 2.7.9 shell
+>>> class Supermen:
+...     def fast_moving(self):
+...             return "Shuuooo ..........you just moved!"
+...
+>>> clark = Supermen()
+>>> clark.fast_moving()
+'Shuuooo ..........you just moved!'
+
+>>> class Incredibles(Supermen):
+...     def wear_uniform(self):
+...             return "The red and black looked so nice!"
+...
+>>> rob = Incredibles()
+>>> rob.wear_uniform()
+'The red and black looked so nice!'
+>>> rob.fast_moving()
+'Shuuooo ..........you just moved!'
+{% endhighlight %}
+
   <p>In JavaScript a popular way to mimic class is through constructor functions and use new functions to create instances, and inherit such "classes" by the prototype assignment:</p>
 {% highlight javascript %}
   node v0.10.13 console

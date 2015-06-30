@@ -16,6 +16,7 @@ It's my privilege to learn all of these with my cohort, your help really makes m
 
 
 PS. the type of the "Git Workflow in a Group Project" submitted 11 months ago by CoffeeSwirl http://i.imgur.com/zLxTjn9.jpg
+<img src="http://i.imgur.com/zLxTjn9.jpg"  alt="git flow"/>
 
 ```
 [Git Workflow in a Group Project]
@@ -45,3 +46,6 @@ Merge featyre_branch into Master
 *Master is always changing!
 Always pull before your push!
 ```
+
+<hr>
+Don't forget to check out <a href="https://www.linkedin.com/pulse/rebasing-git-jeremy-gagon">Jeremy's great post about Git rebase.</a>

@@ -10,7 +10,7 @@ tags: [Ruby, JavaScript, cache, Memoization]
 
 <div id="article">
 <p><a href="http://en.wikipedia.org/wiki/Memoization#Functional_programming">Memoization</a>, storing something in the memory, is very important in the functional programming to avoid repetitive calculation.  Such process, sometimes can be used as the cache mechanism, can save a lot of time, since the memory can be used as containers for expansive calculations or slow I/O results. Yesterday I read <a href="http://www.quora.com/What-are-some-cool-Ruby-tricks">a magic Ruby trick to realize the memoization</a> and would like to try here:</p>
-{% highlight ruby linenos %}
+{% highlight ruby %}
 Welcome to IRB. You are using ruby 2.0.0p576 (2014-09-19) [i386-cygwin]. Have fun ;)
 >> fact = Hash.new{ |h,k| h[k] = ( k<=1 ? 1 : k * h[k-1] ) }
 >> fact[400]  #=> instant result of factorial!
@@ -24,8 +24,20 @@ Welcome to IRB. You are using ruby 2.0.0p576 (2014-09-19) [i386-cygwin]. Have fu
 >> end
 >> fib(500)  #=>  This will probably freeze your computer, please don't try it.
 {% endhighlight %}
-<p>See, when the new hash is declared here, the hash value is calculated only to the previous 1 or 2 elements.  Since most of the calculation results are stored in the hash, the complexity of calculating Fibonacci here is only <code>O(n)</code>, or even less if repeat.  However, using recursive to to calculate Fibonacci will get much higher <code>O(2^n)</code> for each calling, what a difference!</p>
-<p>Of course we can do the same thing in JavaScript. Here are the same factorial and Fibonacci using memoization, by the same concept:</p>
+<p>See, when the new hash is declared here, the hash value is calculated only to the previous 1 or 2 elements.  Since most of the calculation results are stored in the hash, the complexity of calculating Fibonacci here is only <code>O(n)</code>, or even less if repeat.  However, using recursive to to calculate Fibonacci will get much higher <code>O(2^n)</code> for each calling, what a difference!  Another cool way is to utilize Ruby's <code>Fiber</code> class since it 'freezes' upon yield, shown in Mat's <a href="https://books.google.com/books?id=jcUbTcr5XWwC">The Ruby Programming Language</a></p>
+{% highlight ruby %}
+Welcome to IRB. You are using ruby 2.0.0p576 (2014-09-19) [i386-cygwin]. Have fun ;)
+>> fib = Fiber.new do
+>>   x, y = 0, 1
+>>   loop do
+>>     Fiber.yield y
+>>     x,y = y,x+y
+>>   end
+>> end
+>>
+>> 500.times { puts fib.resume }  #=> instant result of Fibonacci!
+{% endhighlight %}
+<p>Of course we can implement the memoization in JavaScript. Here are the same factorial and Fibonacci using memoization, by the same concept:</p>
 {% highlight javascript %}
 node v0.10.13 console
 > var facto = { 0:1, 1:1 };
