@@ -3,7 +3,7 @@ layout: post
 title: "Babun: the new Cygwin for Ruby, Rails, Sinatra and Node.js"
 description: "The best POSIX environment on MS Windows"
 category: tech
-tags: [Ruby, Rails, Node]
+tags: [Ruby, Rails, Node, Cygwin]
 ---
 {% include JB/setup %}
 ### Now you can easily develop Rails apps on MS Windows like unix<img src="/assets/imgs/users.jpg"  alt="major incredible roles" width="20%"/>
@@ -26,7 +26,7 @@ gem install pg sinatra shotgun rails
 {% endhighlight %}
 (Note: Some gems, such as Puma or Turbolinks are not compatible with these settings as of now. Solution will be provided if there's a working one.)
 
-Finally, install the old faithful Node.js 0.4.12, according to <a href="https://github.com/babun/babun/issues/216">Lukasz P</a> and <a href="https://github.com/joyent/node/wiki/Installation#building-on-cygwin">Joyent's suggestion</a>.
+Finally, install the old faithful Node.js 0.4.12 for you to have a JavaScript REPL. According to <a href="https://github.com/babun/babun/issues/216">Lukasz P</a> and <a href="https://github.com/joyent/node/wiki/Installation#building-on-cygwin">Joyent's suggestion</a>.
 {% highlight sh %}
 wget http://nodejs.org/dist/node-v0.4.12.tar.gz
 tar xvfz node-v0.4.12.tar.gz
@@ -36,14 +36,44 @@ make
 make install
 {% endhighlight %}
 
-If you got some errors about nokogiri error, or later (say, phase 3), you may need more updated version of Rails (>=4.2.1) and Heroku toolbelt:
+As of May 2015, Rails should be installed flawlessly by the commands described above. If you unfortunately got some errors about nokogiri error, or you want more updated version of Rails (>=4.2.1), or need Heroku tool belt later (say, phase 3), here is what to do:
 {% highlight sh %}
 gem install nokogiri -- --use-system-libraries
 gem install rails
 wget -qO- https://toolbelt.heroku.com/install.sh | sh
 echo 'PATH="/usr/local/heroku/bin:$PATH"' >> ~/.zshrc
 {% endhighlight %}
-That's it! enjoy your free, full-functional POSIX environment under MS windows without deleting any of your files or repartitioning your drive, in minutes.
+That's it! enjoy your free, full-functional POSIX environment under MS windows without deleting any of your files or repartitioning your drive, in just minutes.
+<hr>
+## Installation of rbenv and Ruby 2.2
+
+<a href="http://getrbenv.com/">getrbenv installer</a> is a super easy tool to install different ruby versions. However the current master might need a suttle update to fit zsh used in Babun.  Here is my workaround to install rbenv with ruby-build and rbenv-update plugin painlessly. Sould you have different needs, please follow the official guide of rbenv to install <a href="https://github.com/sstephenson/rbenv">rbenv</a>.
+{% highlight sh %}
+cd
+curl -sSL https://raw.githubusercontent.com/xjlin0/getrbenv-installer/master/bin/install.sh | bash -s -- --rubies 2.0.0-p645 --plugins sstephenson/ruby-build,rkh/rbenv-update
+curl -sSL http://getrbenv.com/install | bash -s -- --plugins sstephenson/ruby-build,rkh/rbenv-update
+{% endhighlight %}
+Currently there is <a href="https://bugs.ruby-lang.org/issues/11065">a naming bug</a> in the bleeding edge of ruby 2.2 under ext/-test- folder and may stop the compilation in installation. Thus <a href="/assets/imgs/uutoa_printf.patch">I made a patch for ruby 2.2</a> based on <a href="https://github.com/babun/babun/issues/93">dmattes's suggestion</a> to prevent the compilation stopping you at printf.c, the patch won't hurt ruby's function since it's in test folder. When ruby core team fix it in the future, we will be able to enter <code>rbenv install 2.2</code> without patching.
+{% highlight csh %}
+ curl http://xjlin0.github.io/assets/imgs/uutoa_printf.patch | rbenv install --patch 2.2.2
+rbenv rehash
+rbenv global 2.2.2
+{% endhighlight %}
+Your shiny Ruby 2.2.2 is now ready to rock in Babun!
+
+<hr>
+## Installation of newer Node.js
+The last version of Node.js with official support for Cygwin was 0.4.12, but <a href="https://github.com/joyent/node/issues/1734">bnoordhuis's patch works for v0.5.8</a>.  <a href="/assets/imgs/node-v0.5.8-patched4cygwin.tar.gz">I applied the patch and attach here for you to download</a>. You can use the same steps described above.
+{% highlight sh %}
+curl http://xjlin0.github.io/assets/imgs/node-v0.5.8-patched4cygwin.tar.gz
+tar xvfz node-v0.5.8-patched4cygwin.tar.gz
+cd node-v0.5.8/
+./configure
+make
+make install
+{% endhighlight %}
+
+If you need more modern versions, <a href="http://soyuka.me/using-nodejs-with-cygwin-v0-10-25/">soyuka's methods works by connecting windows native binaries to Cygwin</a>, and <a href="https://github.com/babun/babun/issues/216">it works for Babun</a>, not sure if Console 2 is still required in the fabulous Babun 1.1.
 <hr>
 ### Some tips for PostgreSQL service under Babun / Cygwin
 PostgreSQL service is slow but still works under Babun if you follow the following steps to start the service. Basically these are just the steps described in /usr/share/doc/Cygwin/postgresql.README, and you may want to include /usr/sbin in the path.
@@ -58,31 +88,4 @@ You may now use psql to check your PostgreSQL service.  To stop the PostgreSQL s
 /usr/sbin/pg_ctl -D /usr/share/postgresql/data -l logfile stop 
 cygrunsrv -E cygserver 
 {% endhighlight %}
-And you may also want to remove the data (/usr/share/postgresql/data).
-<hr>
-## Installation of rbenv and Ruby 2.2
-Please follow the official guide of rbenv to install <a href="https://github.com/sstephenson/rbenv">rbenv</a> and <a href="https://github.com/sstephenson/ruby-build">ruby-build plugin</a>.  It's a pity that I haven't figure out how to use <a href="http://getrbenv.com/">getrbenv.com</a> on Babun/zsh to replace the following steps.
-{% highlight sh %}
-git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(rbenv init -)"' >> ~/.zshrc
-git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-{% endhighlight %}
-Please finish the installation of rbenv and ruby-build by closing/exiting and restarting Babun shell.  There is a bug in the bleeding edge of ruby 2.2 under test folder and may stop the installation. Thus <a href="/assets/imgs/uutoa_printf.patch">I made a patch for ruby 2.2</a> based on <a href="https://github.com/babun/babun/issues/93">dmattes's suggestion</a>. If the compilation stop you at printf.c, the patch won't hurt ruby's function since it's in test folder. When ruby core team fix it in the future, we will be able to enter <code>rbenv install 2.2</code> without patching.
-{% highlight csh %}
-rbenv install --patch 2.2.0 < patch_path/patch_file
-rbenv rehash
-{% endhighlight %}
-
-<hr>
-## Installation of newer Node.js
-The last version of Node.js with official support for Cygwin was 0.4.12, but <a href="https://github.com/joyent/node/issues/1734">bnoordhuis's patch works for v0.5.8</a>.  <a href="/assets/imgs/node-v0.5.8-patched4cygwin.tar.gz">I applied the patch and attach here for you to download</a>. You can use the same steps described above.
-{% highlight sh %}
-tar xvfz node-v0.5.8-patched4cygwin.tar.gz
-cd node-v0.5.8/
-./configure
-make
-make install
-{% endhighlight %}
-
-If you need more modern versions, <a href="http://soyuka.me/using-nodejs-with-cygwin-v0-10-25/">soyuka's methods works by connecting windows native binaries to Cygwin</a>, and <a href="https://github.com/babun/babun/issues/216">it works for Babun</a>, not sure if Console 2 is still required in the fabulous Babun 1.1.
+And you may also want to remove the data (/usr/share/postgresql/data) when the PostgreSQL service no longer needed.  Please be noted that by such method, even cygserver running is persistent in windows, the closing and restarting of Babun shell will terminate postgresql service so you may need to manually restart it every time.
