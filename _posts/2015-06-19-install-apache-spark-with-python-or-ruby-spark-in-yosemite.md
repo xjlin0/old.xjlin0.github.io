@@ -28,7 +28,7 @@ cd spark-1.3.1-bin-hadoop2.6
 bin/pyspark
 {% endhighlight %}
 
-Now your local Python Spark REPL is ready!  You can test some codes like this:
+Now your local Python Spark REPL is ready!  You can test some codes like this (Clark Updike's example):
 
 {% highlight python %}
 Welcome to
@@ -39,11 +39,11 @@ Welcome to
       /_/
 >>> sc
 <pyspark.context.SparkContext object at 0x10ba5fd10>
->>> rdd = sc.parallelize(range(1,10), 3)
+>>> rdd=sc.parallelize( [('a b',(1,'gold')), ('a b',(2,'gold')), ('a c',(4,'gold'))] )
 >>> rdd.cache()
 #ParallelCollectionRDD[1] at parallelize at PythonRDD.scala:392
->>> rdd.map(lambda x: x+5).collect()
-# => [6, 7, 8, 9, 10, 11, 12, 13, 14]  # Spark RDD works!
+>>> rdd.aggregate(0, lambda acc, (k, (v, lab1)): acc + v, lambda a, b : a + b )
+# => 7  # Spark RDD works!
 {% endhighlight %}
 
 

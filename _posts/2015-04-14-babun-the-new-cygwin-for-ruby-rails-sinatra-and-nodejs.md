@@ -46,31 +46,13 @@ echo 'PATH="/usr/local/heroku/bin:$PATH"' >> ~/.zshrc
 That's it! enjoy your free, full-functional POSIX environment under MS windows without deleting any of your files or repartitioning your drive, in minutes.
 
 <hr>
-### Some tips for PostgreSQL service under Babun / Cygwin
-PostgreSQL service is slow but still works under Babun if you follow the following steps to start the service. Basically these are just the steps described in /usr/share/doc/Cygwin/postgresql.README, and you may want to include /usr/sbin in the path.
-{% highlight sh %}
-cygrunsrv -S cygserver
-/usr/sbin/initdb.exe -D /usr/share/postgresql/data
-/usr/sbin/pg_ctl start -D /usr/share/postgresql/data -l /var/log/postgresql.log
-createdb
-{% endhighlight %}
-You may now use psql to check your PostgreSQL service.  To stop the PostgreSQL service:
-{% highlight sh %}
-/usr/sbin/pg_ctl -D /usr/share/postgresql/data -l logfile stop
-cygrunsrv -E cygserver
-{% endhighlight %}
-And you may also want to remove the data (/usr/share/postgresql/data).
-
-<hr>
 ## Installation of rbenv and Ruby 2.2
 
 <a href="http://getrbenv.com/">getrbenv installer</a> is a super easy tool to install different ruby versions. However the current master might need a suttle update to fit zsh used in Babun.  Here is my workaround to install rbenv with ruby-build and rbenv-update plugin painlessly. Sould you have different needs, please follow the official guide of rbenv to install <a href="https://github.com/sstephenson/rbenv">rbenv</a>. Let's start with old faithful Ruby 2.0.0 because many apps are still using it.
 {% highlight sh %}
-cd
-curl -sSL https://raw.githubusercontent.com/xjlin0/getrbenv-installer/master/bin/install.sh | bash -s -- --rubies 2.0.0-p645 --plugins sstephenson/ruby-build,rkh/rbenv-update
-curl -sSL http://getrbenv.com/install | bash -s -- --plugins sstephenson/ruby-build,rkh/rbenv-update
+curl -sSL https://raw.githubusercontent.com/xjlin0/getrbenv-installer/feature/fix_zshrc_install_dir_pathfix/bin/install.sh | bash -s -- --rubies 2.0.0-p645 --plugins sstephenson/ruby-build,rkh/rbenv-update
 {% endhighlight %}
-Currently there is <a href="https://bugs.ruby-lang.org/issues/11065">a naming bug</a> in the bleeding edge of ruby 2.2 under ext/-test- folder and may stop the compilation in installation. Thus <a href="/assets/imgs/uutoa_printf.patch">I made a patch for ruby 2.2</a> based on <a href="https://github.com/babun/babun/issues/93">dmattes's suggestion</a> to prevent the compilation stopping you at printf.c, the patch won't hurt ruby's function since it's in test folder. When ruby core team fix it in the future, we will be able to enter <code>rbenv install 2.2</code> without patching.
+Please close Babun shell and restart Babun to get path works. Now how do you install newer version of Ruby? Currently there is <a href="https://bugs.ruby-lang.org/issues/11065">a naming bug</a> in the bleeding edge of ruby 2.2 under ext/-test- folder and may stop the compilation in installation. Thus <a href="/assets/imgs/uutoa_printf.patch">I made a patch for ruby 2.2</a> based on <a href="https://github.com/babun/babun/issues/93">dmattes's suggestion</a> to prevent the compilation stopping you at printf.c, the patch won't hurt ruby's function since it's in test folder. When ruby core team fix it in the future, we will be able to enter <code>rbenv install 2.2</code> without patching.
 {% highlight csh %}
  curl http://xjlin0.github.io/assets/imgs/uutoa_printf.patch | rbenv install --patch 2.2.2
 rbenv rehash
@@ -92,6 +74,7 @@ make install
 
 If you need more modern versions, <a href="http://soyuka.me/using-nodejs-with-cygwin-v0-10-25/">soyuka's methods works by connecting windows native binaries to Cygwin</a>, and <a href="https://github.com/babun/babun/issues/216">it works for Babun</a>, not sure if Console 2 is still required in the fabulous Babun 1.1.
 <hr>
+
 ### Some tips for PostgreSQL service under Babun / Cygwin
 PostgreSQL service is slow but still works under Babun if you follow the following steps to start the service. Basically these are just the steps described in /usr/share/doc/Cygwin/postgresql.README, and you may want to include /usr/sbin in the path.
 {% highlight sh %}
@@ -102,7 +85,7 @@ createdb
 {% endhighlight %}
 You may now use psql to check your PostgreSQL service.  To stop the PostgreSQL service:
 {% highlight sh %}
-/usr/sbin/pg_ctl -D /usr/share/postgresql/data -l logfile stop 
-cygrunsrv -E cygserver 
+/usr/sbin/pg_ctl -D /usr/share/postgresql/data -l logfile stop
+cygrunsrv -E cygserver
 {% endhighlight %}
 And you may also want to remove the data (/usr/share/postgresql/data) when the PostgreSQL service no longer needed.  Please be noted that by such method, even cygserver running is persistent in windows, the closing and restarting of Babun shell will terminate postgresql service so you may need to manually restart it every time.
