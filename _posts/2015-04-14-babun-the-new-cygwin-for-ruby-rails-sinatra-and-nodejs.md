@@ -58,7 +58,7 @@ Success? Please close Babun shell and restart Babun to get the path works. Now h
 rbenv rehash
 rbenv global 2.2.2
 {% endhighlight %}
-After closing and restarting Babun shell, your shiny Ruby 2.2.2 is now ready to rock in Babun! You may also want to install the old faithful Ruby 2.0 by <code>curl http://xjlin0.github.io/assets/imgs/uutoa_printf.patch | rbenv install --patch 2.0.0-p645</code>, since many apps are still using it.
+After closing and restarting Babun shell, your shiny Ruby 2.2.2 is now ready to rock in Babun! You may also want to install the old faithful Ruby 2.0 by the same manner, just change <code>2.2.2</code> in the above curl command to <code>2.0.0-p645</code>, since many apps are still using Ruby 2.0.
 
 <hr>
 ## Installation of newer Node.js
