@@ -48,17 +48,17 @@ That's it! enjoy your free, full-functional POSIX environment under MS windows w
 <hr>
 ## Installation of rbenv and Ruby 2.2
 
-<a href="http://getrbenv.com/">getrbenv installer</a> is a super easy tool to install different ruby versions. However the current master might need a suttle update to fit zsh used in Babun.  Here is my workaround to install rbenv with ruby-build and rbenv-update plugin painlessly. Sould you have different needs, please follow the official guide of rbenv to install <a href="https://github.com/sstephenson/rbenv">rbenv</a>. Let's start with old faithful Ruby 2.0.0 because many apps are still using it.
+<a href="https://github.com/sstephenson/rbenv">rbenv</a> is a fantastic Ruby version manager, but its installation, with building plugins, requires several steps. To make it simpler, a super great tool, <a href="http://getrbenv.com/">getrbenv installer</a>, was developed. However its current master might need a subtle update to fit zsh used in Babun.  Here is my workaround to install rbenv with ruby-build and rbenv-update plugin painlessly. Let's first start without Ruby version assigned. (The following command is ONE line)
 {% highlight sh %}
-curl -sSL https://raw.githubusercontent.com/xjlin0/getrbenv-installer/feature/fix_zshrc_install_dir_pathfix/bin/install.sh | bash -s -- --rubies 2.0.0-p645 --plugins sstephenson/ruby-build,rkh/rbenv-update
+curl -sSL https://raw.githubusercontent.com/xjlin0/getrbenv-installer/feature/fix_zshrc_install_dir_pathfix/bin/install.sh | bash -s -- --plugins sstephenson/ruby-build,rkh/rbenv-update
 {% endhighlight %}
-Please close Babun shell and restart Babun to get path works. Now how do you install newer version of Ruby? Currently there is <a href="https://bugs.ruby-lang.org/issues/11065">a naming bug</a> in the bleeding edge of ruby 2.2 under ext/-test- folder and may stop the compilation in installation. Thus <a href="/assets/imgs/uutoa_printf.patch">I made a patch for ruby 2.2</a> based on <a href="https://github.com/babun/babun/issues/93">dmattes's suggestion</a> to prevent the compilation stopping you at printf.c, the patch won't hurt ruby's function since it's in test folder. When ruby core team fix it in the future, we will be able to enter <code>rbenv install 2.2</code> without patching.
+Success? Please close Babun shell and restart Babun to get the path works. Now how do you install newer version of Ruby? Currently there is <a href="https://bugs.ruby-lang.org/issues/11065">a naming bug</a> in the bleeding edge of Ruby under ext/-test- folder and may stop the compilation in installation. Thus <a href="/assets/imgs/uutoa_printf.patch">I made a patch for ruby 2.2 or 2.0</a> based on <a href="https://github.com/babun/babun/issues/93">dmattes's suggestion</a> to prevent the compilation stopping you at printf.c, the patch won't hurt ruby's function since it's in test folder. When ruby core team fix it in the future, we will be able to enter <code>rbenv install 2.2</code> without patching.
 {% highlight csh %}
  curl http://xjlin0.github.io/assets/imgs/uutoa_printf.patch | rbenv install --patch 2.2.2
 rbenv rehash
 rbenv global 2.2.2
 {% endhighlight %}
-Your shiny Ruby 2.2.2 is now ready to rock in Babun!
+After closing and restarting Babun shell, your shiny Ruby 2.2.2 is now ready to rock in Babun! You may also want to install the old faithful Ruby 2.0 by <code>curl http://xjlin0.github.io/assets/imgs/uutoa_printf.patch | rbenv install --patch 2.0.0-p645</code>, since many apps are still using it.
 
 <hr>
 ## Installation of newer Node.js
