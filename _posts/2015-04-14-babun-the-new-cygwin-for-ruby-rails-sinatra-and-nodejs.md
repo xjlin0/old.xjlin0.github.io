@@ -18,7 +18,7 @@ install.bat /t "c:/"
 Babun system will finish the installation within a few minutes, and bring you its default terminal under zsh.  One of my favorite things is X-window style mouse copying/pasting, <em><strong>in Babun the mouse selected text in the terminal is immediately copied, you can then paste by mouse right-clicking</strong></em>.
 <hr>
 ### Quick and short steps for beginners
-If you don't have time and need Ruby and Node.js now (especially for phase 0 DBC students), just execute the following commands to have Ruby 2.0, Rails 4.0, the latest Sinatra and Node 0.4.12. It's enough to cover the entire DBC phase 0~2.  Under Babun terminal, please enter:
+If you don't have time and need Ruby and Node.js now (especially for phase 0 DBC students), just execute the following commands to have Ruby 2.0, Rails 4.0, the latest Sinatra and Node 0.4.12. It's enough to cover the entire DBC phase 0~2.  Under Babun terminal, please enter the following three lines of commands:
 {% highlight sh %}
 babun update
 pact install ruby ruby-nokogiri ruby-rails ruby-pg libpq-devel libxml2-devel libxslt-devel gcc-g++ patch sqlite3 postgresql
@@ -52,17 +52,17 @@ That's it! enjoy your free, full-functional POSIX environment under MS windows w
 {% highlight sh %}
 curl -sSL https://raw.githubusercontent.com/xjlin0/getrbenv-installer/feature/fix_zshrc_install_dir_pathfix/bin/install.sh | bash -s -- --plugins sstephenson/ruby-build,rkh/rbenv-update
 {% endhighlight %}
-Success? Please close Babun shell and restart Babun to get the path works. Now how do you install newer version of Ruby? Currently there is <a href="https://bugs.ruby-lang.org/issues/11065">a naming bug</a> in the bleeding edge of Ruby under ext/-test- folder and may stop the compilation in installation. Thus <a href="/assets/imgs/uutoa_printf.patch">I made a patch for ruby 2.2 or 2.0</a> based on <a href="https://github.com/babun/babun/issues/93">dmattes's suggestion</a> to prevent the compilation stopping you at printf.c, the patch won't hurt ruby's function since it's in test folder. When ruby core team fix it in the future, we will be able to enter <code>rbenv install 2.2</code> without patching.
+Success? Please close Babun shell and restart Babun to get the path works. Now how do you install newer version of Ruby? Currently there is <a href="https://bugs.ruby-lang.org/issues/11065">a naming bug</a> in the bleeding edge of Ruby under ext/-test- folder and may stop the compilation in installation. Thus <a href="/assets/imgs/uutoa_printf.patch">I made a patch for ruby 2.2 or 2.0</a> based on <a href="https://github.com/babun/babun/issues/93">dmattes's suggestion</a> to prevent the compilation stopping you at printf.c. The patch won't hurt ruby's function since it's in test folder. The installation just need the following three lines of commands:
 {% highlight csh %}
  curl http://xjlin0.github.io/assets/imgs/uutoa_printf.patch | rbenv install --patch 2.2.2
 rbenv rehash
 rbenv global 2.2.2
 {% endhighlight %}
-After closing and restarting Babun shell, your shiny Ruby 2.2.2 is now ready to rock in Babun! You may also want to install the old faithful Ruby 2.0 by the same manner, just change <code>2.2.2</code> in the above curl command to <code>2.0.0-p645</code>, since many apps are still using Ruby 2.0.
+After closing and restarting Babun shell, your shiny Ruby 2.2.2 is now ready to rock in Babun! You may also want to install the old faithful Ruby 2.0 by the same manner, just change <code>2.2.2</code> in the above curl command to <code>2.0.0-p645</code>, since many apps are still using Ruby 2.0.  When the Ruby core team fix the naming issues in the future, we will be able to enter <code>rbenv install 2.2</code> without patching.
 
 <hr>
 ## Installation of newer Node.js
-The last version of Node.js with official support for Cygwin was 0.4.12, but <a href="https://github.com/joyent/node/issues/1734">bnoordhuis's patch works for v0.5.8</a>.  <a href="/assets/imgs/node-v0.5.8-patched4cygwin.tar.gz">I applied the patch and attach here for you to download</a>. You can use the same steps described above.
+The last version of Node.js with official support for Cygwin was 0.4.12, but <a href="https://github.com/joyent/node/issues/1734">bnoordhuis's patch works for v0.5.8</a>.  <a href="/assets/imgs/node-v0.5.8-patched4cygwin.tar.gz">I applied the patch and attach here for you to download/install</a>. You can use the same steps described above.
 {% highlight sh %}
 curl http://xjlin0.github.io/assets/imgs/node-v0.5.8-patched4cygwin.tar.gz
 tar xvfz node-v0.5.8-patched4cygwin.tar.gz
