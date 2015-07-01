@@ -42,7 +42,7 @@ Welcome to
 >>> rdd=sc.parallelize( [('a b',(1,'gold')), ('a b',(2,'gold')), ('a c',(4,'gold'))] )
 >>> rdd.cache()
 #ParallelCollectionRDD[1] at parallelize at PythonRDD.scala:392
->>> rdd.aggregate(0, lambda acc, (k, (v, lab1)): acc + v, lambda a, b : a + b )
+>>> rdd.aggregate(0, lambda acc, (k, (v, label)): acc + v, lambda a, b : a + b )
 # => 7  # Spark RDD works!
 {% endhighlight %}
 

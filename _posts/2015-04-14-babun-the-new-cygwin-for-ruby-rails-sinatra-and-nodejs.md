@@ -64,7 +64,7 @@ After closing and restarting Babun shell, your shiny Ruby 2.2.2 is now ready to 
 ## Installation of newer Node.js
 The last version of Node.js with official support for Cygwin was 0.4.12, but <a href="https://github.com/joyent/node/issues/1734">bnoordhuis's patch works for v0.5.8</a>.  <a href="/assets/imgs/node-v0.5.8-patched4cygwin.tar.gz">I applied the patch and attach here for you to download/install</a>. You can use the same steps described above.
 {% highlight sh %}
-curl http://xjlin0.github.io/assets/imgs/node-v0.5.8-patched4cygwin.tar.gz
+wget http://xjlin0.github.io/assets/imgs/node-v0.5.8-patched4cygwin.tar.gz
 tar xvfz node-v0.5.8-patched4cygwin.tar.gz
 cd node-v0.5.8/
 ./configure
