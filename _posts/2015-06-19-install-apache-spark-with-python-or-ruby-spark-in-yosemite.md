@@ -50,7 +50,7 @@ Welcome to
 
 
 
-Moreover, now it's possible to use Apache Spark in Ruby by <a href="https://github.com/vigetlabs/ruby_spark">RubySpark gem</a>, in addition to Java, Scala, Python or R. This fabulous gem has not supported DataFrames yet, and its shell is based on pry gem. One of my glitches was pry's incompatibility with pry-debugger in Ruby 2.2.2, so I had to <code>gem uninstall pry-debugger</code> and made sure pry works alone first.
+Moreover, now it's possible to use Apache Spark in Ruby by <a href="http://ondra-m.github.io/ruby-spark/">RubySpark gem</a>, in addition to Java, Scala, Python or R. This fabulous gem has not supported DataFrames yet, and its shell is based on pry gem. One of my glitches was pry's incompatibility with pry-debugger in Ruby 2.2.2, so I had to <code>gem uninstall pry-debugger</code> and made sure pry works alone first.
 
 {% highlight console %}
 brew install java sbt
