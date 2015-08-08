@@ -31,7 +31,7 @@ puts "Finished talking with Incredibles!"
 
 However, these threads might step in each other's foot, if accessing shared resources.  Such scenario, named <a href="http://en.wikipedia.org/wiki/Race_condition">Race Conditions</a>, need to be considered. For example, if we setup 10 workers to read or write the same file, these workers wouldn't know other workers' progress and might process the same line or write the same files to waste time or corrupt data.  You can use the <a href="http://ruby-doc.org/core-2.2.2/Mutex.html">Mutex</a>, a locking mechanism, to avoid this, or to split jobs to ensure each workers doing different jobs.
 
-How to split huge CSV files for many workers to parse?  There is a amazing gem called <a href="http://github.com/tilo/smarter_csv">smarter_csv</a>, which can parse CSV to array of hashes by CSV headers.  It also can split CSV into arrays of hashes which is ideal for parallel processing, such as <a href="http://github.com/resque/resque">Resque</a> or <a href="http://github.com/mperham/sidekiq">Sidekiq</a>.  Here is how I split CSV and assign for simultaneously parsing huge CSV files.  It shortened days of work to hours by using all 8 Threads on my Mac!
+How to split huge CSV files for many workers to parse?  There is a amazing gem called <a href="http://github.com/tilo/smarter_csv">smarter_csv</a>, which can parse and split CSV to array of hashes by CSV headers.  Its splitting is ideal for parallel processing, such as <a href="http://github.com/resque/resque">Resque</a> or <a href="http://github.com/mperham/sidekiq">Sidekiq</a>.  Here is how I split CSV and assign for simultaneously parsing huge CSV files.  It shortened days of work to hours by using all 8 Threads on my Mac!
 
 {% highlight ruby %}
 require 'parallel'

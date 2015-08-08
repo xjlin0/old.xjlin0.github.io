@@ -60,7 +60,7 @@ ruby-spark build
 ruby-spark shell
 {% endhighlight %}
 
-After compiling for some time, your access to Apache Spark™ is now granted!. Let's write some RDD now. According to Ruby-spark gem author's benchmark, using oj as the serializer will be faster than default Marshal serializer. And the <a href="https://github.com/ondra-m/ruby-spark/wiki/Passing-function">passing of the anonymous function is different from native Ruby</a>. However I don't care, it just works!  have a lot of fun!
+After compiling for some time, your access to Apache Spark™ is now granted!. Let's write some RDD now. According to Ruby-spark gem author's benchmark, starting it by <code>SPARK_RUBY_SERIALIZER="oj" ruby-spark shell</code> would use oj as the serializer and will be faster than default Marshal serializer. And the <a href="https://github.com/ondra-m/ruby-spark/wiki/Passing-function">passing of the anonymous function is different from native Ruby</a>. However I don't care, it just works!  have a lot of fun!
 
 {% highlight irb %}
     Welcome to
@@ -77,6 +77,6 @@ After compiling for some time, your access to Apache Spark™ is now granted!. L
 Deserializer: "Batched(1024) -> Marshal">
 [2] pry(main)> rdd.cache
 #=> #<Spark::RDD:0x70362396061240 (cached) ....
-[3] pry(main)> rdd.map('lambda{|x| x+5}').collect()
+[3] pry(main)> rdd.map( lambda{|x| x+5} ).collect()
 #=> [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]    # Spark RDD works!
 {% endhighlight %}
