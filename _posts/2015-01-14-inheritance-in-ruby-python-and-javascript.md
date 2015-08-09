@@ -22,6 +22,8 @@ tags: [Ruby, Python, JavaScript, inheritance, OOP]
         "The red and black looked so nice!"
       end
   >> end
+  #  note: inheritance can also be done when initiating a new instance of Class
+  #  Incredibles = Class.new(Supermen)
 
   >> clark = Superman.new
   >> clark.fast_moving #=> "Shuuooo ..........you just moved!"
