@@ -6,10 +6,10 @@ category: tech
 tags: [Ruby, Rails, Node, Cygwin]
 ---
 {% include JB/setup %}
-### Now you can easily develop Rails apps on MS Windows like unix<img src="/assets/imgs/users.jpg"  alt="major incredible roles" width="20%"/>
+### Now you can easily develop Rails apps on MS Windows like unix<img src="/assets/imgs/baboon.jpeg"  alt="baboon" width="20%"/>
 
 ##Installation steps:
-- Download Babun distribution from <a href="http://babun.github.io">Babun official site</a> by hitting the big <code>Download Now</code> button on the top of the landing page and extract it.
+- Download Babun distribution from <a href="http://babun.github.io">Babun official site</a> by hitting the big <code>[Download Now](http://projects.reficio.org/babun/download)</code> button on the top of the landing page and extract it.
 
 - Enter MS Windows command line mode (<a href="https://www.youtube.com/watch?v=JOrY5PEo-iE">a.k.a cmd</a>) and go to the extracted folder to start. I recommend to install it under the top folder of a drive to avoid hitting the max path length of the MS Windows file system. Remember, the slash of MS Windows and Unix are different.
 {% highlight console %}
@@ -17,7 +17,7 @@ install.bat /t "c:/"
 {% endhighlight %}
 Babun system will finish the installation within a few minutes, and bring you its default terminal under zsh.  One of my favorite things is X-window style mouse copying/pasting, <em><strong>in Babun the mouse selected text in the terminal is immediately copied, you can then paste by mouse right-clicking</strong></em>.
 <hr>
-### Quick and short steps for beginners
+### Quick and short steps for starters
 If you don't have time and need Ruby and Node.js now (especially for phase 0 DBC students), just execute the following commands to have Ruby 2.0, Rails 4.0, the latest Sinatra and Node 0.4.12. It's enough to cover the entire DBC phase 0~2.  Under Babun terminal, please enter the following three lines of commands:
 {% highlight sh %}
 babun update
@@ -83,7 +83,7 @@ cygrunsrv -S cygserver
 /usr/sbin/pg_ctl start -D /usr/share/postgresql/data -l /var/log/postgresql.log
 createdb
 {% endhighlight %}
-You may now use psql to check your PostgreSQL service.  To stop the PostgreSQL service:
+You may now use psql to check your PostgreSQL service.  In case you want to stop the PostgreSQL service someday:
 {% highlight sh %}
 /usr/sbin/pg_ctl -D /usr/share/postgresql/data -l logfile stop
 cygrunsrv -E cygserver
