@@ -8,7 +8,7 @@ tags: [Ruby, Rails, Node, Cygwin]
 {% include JB/setup %}
 ### Now you can easily develop Rails apps on MS Windows like unix<img src="/assets/imgs/baboon.jpeg"  alt="baboon" width="20%"/>
 
-It's hard to setup POSIX compatible environment on MS windows PC for your coding setup, here is the way I found feasible, on Windows 7 64 bit, updated on Sep 27 2015.
+It's hard to setup POSIX compatible environment on MS windows PC for your coding setup, here is the way I found feasible, on Windows 7 64 bit with Babun 1.2.0-dist, updated on Sep 27 2015.
 
 ##Installation steps:
 - Download Babun distribution from <a href="http://babun.github.io">Babun official site</a> by hitting the big <code>[Download Now](http://projects.reficio.org/babun/download)</code> button on the top of the landing page and extract it.
