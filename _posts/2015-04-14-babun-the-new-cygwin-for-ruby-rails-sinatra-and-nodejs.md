@@ -13,7 +13,7 @@ It's hard to setup POSIX compatible environment on MS windows PC for your coding
 ##Installation steps:
 - Download Babun distribution from <a href="http://babun.github.io">Babun official site</a> by hitting the big <code>[Download Now](http://projects.reficio.org/babun/download)</code> button on the top of the landing page and extract it.
 
-- Enter MS Windows command line mode (<a href="https://www.youtube.com/watch?v=JOrY5PEo-iE">a.k.a cmd</a>) and go to the extracted folder to start. I recommend to install it under the top folder of a drive to avoid hitting the max path length of the MS Windows file system. Remember, the slash of MS Windows and Unix are different.
+- Enter MS Windows command line mode ([a.k.a cmd](https://www.youtube.com/watch?v=JOrY5PEo-iE)) and go to the extracted folder to start. I recommend to install it under the top folder of a drive to avoid hitting the max path length of the MS Windows file system. Remember, the slash of MS Windows and Unix are different.
 {% highlight console %}
 install.bat /t "c:/"
 {% endhighlight %}
@@ -24,11 +24,12 @@ If you don't have time and need Ruby and Node.js now (especially for phase 0 DBC
 {% highlight sh %}
 babun update
 pact install ruby ruby-nokogiri ruby-rails ruby-pg libpq-devel libxml2-devel libxslt-devel gcc-g++ patch sqlite3 postgresql curl wget libgmp-devel
-gem install pg sinatra shotgun rails rspec
+gem install pg sinatra shotgun rspec rails
 {% endhighlight %}
 (Note: Some gems, such as Puma or Turbolinks are not compatible with these settings as of now. Solution will be provided if there's a working one.)
 
 As of Sep 2015, Rails 4.2.4 and Ruby 2.2.2 should be installed flawlessly by the commands described above. If you unfortunately got some errors about nokogiri error, or you want more updated version of Rails (>4.2.4), or need Heroku tool belt later (say, phase 3), here is what to do:
+
 {% highlight sh %}
 gem install nokogiri -- --use-system-libraries
 gem install rails
@@ -36,7 +37,7 @@ wget -qO- https://toolbelt.heroku.com/install.sh | sh
 echo 'PATH="/usr/local/heroku/bin:$PATH"' >> ~/.zshrc
 {% endhighlight %}
 
-Next let's setup node.js.  Please download the latest installer for windows at [node office site](https://nodejs.org) (v4.1.1 for win64 as the example here), install it. Close and relaunch Babun shell, node REPL console should be available by the following commend.
+Next let's setup node.js. Please download the latest installer for windows at [node official site](https://nodejs.org) (v4.1.1 for win64 as the example here), install it. Close and relaunch Babun shell, node REPL console should be available by the following commend.
 
 {% highlight sh %}
 node -i
@@ -46,7 +47,7 @@ That's it! enjoy your free, full-functional POSIX environment under MS windows w
 <hr>
 ## Installation of rbenv and Ruby 2.2
 
-<a href="https://github.com/sstephenson/rbenv">rbenv</a> is a fantastic Ruby version manager, but its installation, with building plugins, requires several steps. To make it simpler, a super great tool, <a href="http://getrbenv.com/">getrbenv installer</a>, was developed. However its current master might need a subtle update to fit zsh used in Babun.  Here is my workaround to install rbenv with ruby-build and rbenv-update plugin painlessly. Let's first start without Ruby version assigned. (The following command is ONE line)
+[rbenv](https://github.com/sstephenson/rbenv) is a fantastic Ruby version manager, but its installation, with building plugins, requires several steps. To make it simpler, a super great tool, [getrbenv installer](http://getrbenv.com), was developed. However its current master might need a subtle update to fit zsh used in Babun.  Here is my workaround to install rbenv with ruby-build and rbenv-update plugin painlessly. Let's first start without Ruby version assigned. (The following command is ONE line)
 {% highlight sh %}
 curl -sSL https://raw.githubusercontent.com/xjlin0/getrbenv-installer/feature/fix_zshrc_install_dir_pathfix/bin/install.sh | bash -s -- --plugins sstephenson/ruby-build,rkh/rbenv-update
 {% endhighlight %}
@@ -58,7 +59,7 @@ rbenv rehash
 rbenv global 2.2.3
 {% endhighlight %}
 
-You can also install older Ruby 2.1.7 or 1.9.3 by <code>rbenv install 2.1.7<code> or <code>rbenv install 1.9.3-p551<code>. How about 2.0.0-p647? Currently there is [a naming bug](https://bugs.ruby-lang.org/issues/11065) in some versions of Ruby under ext/-test- folder and may stop the compilation in installation. Thus [I made a patch](/assets/imgs/uutoa_printf.patch) based on [dmattes's suggestion](https://github.com/babun/babun/issues/93) to prevent the compilation stopping you at printf.c. The patch won't hurt ruby's function since it's in test folder.
+You can also install older Ruby 2.1.7 or 1.9.3 by <code>rbenv install 2.1.7</code> or <code>rbenv install 1.9.3-p551</code>. How about 2.0.0-p647? Currently there is [a naming bug](https://bugs.ruby-lang.org/issues/11065) in some versions of Ruby under ext/-test- folder and may stop the compilation in installation. Thus [I made a patch](/assets/imgs/uutoa_printf.patch) based on [dmattes's suggestion](https://github.com/babun/babun/issues/93) to prevent the compilation stopping you at printf.c. The patch won't hurt ruby's function since it's in test folder.
 
 {% highlight csh %}
  curl http://xjlin0.github.io/assets/imgs/uutoa_printf.patch | rbenv install --patch 2.0.0-p647
@@ -66,7 +67,7 @@ You can also install older Ruby 2.1.7 or 1.9.3 by <code>rbenv install 2.1.7<code
 
 <hr>
 ## Compile your own Node.js (NOT recommended)
-The windows native binaries by node.js installer should be good for use. However here is some other non-required adventure for those likes experimenting. The last version of Node.js with official support for Cygwin was 0.4.12, according to <a href="https://github.com/babun/babun/issues/216">Lukasz P</a> and <a href="https://github.com/joyent/node/wiki/Installation#building-on-cygwin">Joyent's suggestion</a>. If you enjoy waiting for compile, here is how to compile and install the old faithful Node.js 0.4.12.
+The windows native binaries by node.js installer should be good for use. However here is some other non-required adventure for those likes experimenting. The last version of Node.js with official support for Cygwin was 0.4.12, according to [Lukasz P](https://github.com/babun/babun/issues/216) and [Joyent's suggestion](https://github.com/joyent/node/wiki/Installation#building-on-cygwin). If you enjoy waiting for compile, here is how to compile and install the old faithful Node.js 0.4.12.
 
 {% highlight sh %}
 wget http://nodejs.org/dist/node-v0.4.12.tar.gz
