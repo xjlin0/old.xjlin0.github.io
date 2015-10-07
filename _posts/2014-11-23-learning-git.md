@@ -47,5 +47,5 @@ Merge featyre_branch into Master
 Always pull before your push!
 ```
 
-<hr>
+___
 Don't forget to check out <a href="https://www.linkedin.com/pulse/rebasing-git-jeremy-gagon">Jeremy's great post about Git rebase.</a>

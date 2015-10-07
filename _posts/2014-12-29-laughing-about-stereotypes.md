@@ -103,7 +103,7 @@ tags: [DBC, stereotype]
 
 <p>Engineers laughing at this article condescend to those engineers saying "Programming languages are just tools, there's not meaningful to condescend to each others, every programming languages gets good and bad fitting situations."</p>
 
----
+<hr>
 
 <p>If you are still not knocked out after reading these crucial condescending chains, I have to remind you the most important things here: Go to get a girl friend first then learn programing. Because once you become a software engineer you won't have a chance to get one.</p>
 

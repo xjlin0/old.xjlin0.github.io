@@ -8,7 +8,7 @@ tags: [gem, Rails]
 {% include JB/setup %}
 ### These gems can really help your rails app on user control <img src="/assets/imgs/users.jpg"  alt="major incrediable roles" width="20%"/>
 
-<hr>
+___
 
 Gem names   |  ***[plataformatec's_Devise](https://github.com/plataformatec/devise)***   |  ***[thoughtbot's Clearance](https://github.com/thoughtbot/clearance)***  |
 :--------- |:----------------------------: | :--------------------------: |Summary    | MVC/10modules&more extentions |    small & simple
@@ -24,7 +24,7 @@ Install    | rails generate devise:install | rails generate clearance:install
 | testing   |  Test helpers                 | yes with factory_girl_rails
 |           |                               |(rails generate clearance:specs)
 
-<hr>
+___
 
 ### Devise
 [Here is a great tutorial of Devise can be found on Ruby girls](http://guides.railsgirls.com/devise/). [Or you can use Rais Composer to install Devise on a new Rails project](http://railsapps.github.io/rails-composer/) by the command <code>rails new myapp -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb</code>. Alternatively, you can [install ActiveAdmin gem](http://activeadmin.info), which will automatically install Devise for you.

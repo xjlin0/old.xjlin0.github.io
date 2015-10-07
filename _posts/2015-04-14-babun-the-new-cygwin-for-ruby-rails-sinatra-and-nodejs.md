@@ -44,7 +44,7 @@ node -i
 {% endhighlight %}
 
 That's it! enjoy your free, full-functional POSIX environment under MS windows without deleting any of your files or repartitioning your drive, in minutes.
-<hr>
+___
 ## Installation of rbenv and Ruby 2.2
 
 [rbenv](https://github.com/sstephenson/rbenv) is a fantastic Ruby version manager, but its installation, with building plugins, requires several steps. To make it simpler, a super great tool, [getrbenv installer](http://getrbenv.com), was developed. However its current master might need a subtle update to fit zsh used in Babun.  Here is my workaround to install rbenv with ruby-build and rbenv-update plugin painlessly. Let's first start without Ruby version assigned. (The following command is ONE line)
@@ -59,13 +59,13 @@ rbenv rehash
 rbenv global 2.2.3
 {% endhighlight %}
 
-You can also install older Ruby 2.1.7 or 1.9.3 by <code>rbenv install 2.1.7</code> or <code>rbenv install 1.9.3-p551</code>. How about 2.0.0-p647? Currently there is [a naming bug](https://bugs.ruby-lang.org/issues/11065) in some versions of Ruby under ext/-test- folder and may stop the compilation in installation. Thus [I made a patch](/assets/imgs/uutoa_printf.patch) based on [dmattes's suggestion](https://github.com/babun/babun/issues/93) to prevent the compilation stopping you at printf.c. The patch won't hurt ruby's function since it's in test folder.
+You can also install older Ruby 2.1.7 or 1.9.3 by `rbenv install 2.1.7` or `rbenv install 1.9.3-p551`. How about 2.0.0-p647? Currently there is [a naming bug](https://bugs.ruby-lang.org/issues/11065) in some versions of Ruby under ext/-test- folder and may stop the compilation in installation. Thus [I made a patch](/assets/imgs/uutoa_printf.patch) based on [dmattes's suggestion](https://github.com/babun/babun/issues/93) to prevent the compilation stopping you at printf.c. The patch won't hurt ruby's function since it's in test folder.
 
 {% highlight csh %}
  curl http://xjlin0.github.io/assets/imgs/uutoa_printf.patch | rbenv install --patch 2.0.0-p647
 {% endhighlight %}
 
-<hr>
+___
 ## Compile your own Node.js (NOT recommended)
 The windows native binaries by node.js installer should be good for use. However here is some other non-required adventure for those likes experimenting. The last version of Node.js with official support for Cygwin was 0.4.12, according to [Lukasz P](https://github.com/babun/babun/issues/216) and [Joyent's suggestion](https://github.com/joyent/node/wiki/Installation#building-on-cygwin). If you enjoy waiting for compile, here is how to compile and install the old faithful Node.js 0.4.12.
 
@@ -88,7 +88,7 @@ cd node-v0.5.8/
 make
 make install
 {% endhighlight %}
-<hr>
+___
 
 ### Some tips for PostgreSQL service under Babun / Cygwin
 PostgreSQL service is slow but still works under Babun if you follow the following steps to start the service. Basically these are just the steps described in /usr/share/doc/Cygwin/postgresql.README, and you may want to include /usr/sbin in the path.

@@ -3,7 +3,7 @@ layout: post
 title: "Suggesting friends by MapReduce"
 description: "Find out 'people you may know' by user's friend list"
 category: tech
-tags: [Parallel, Spark, Python, MrJob, MapReduce]
+tags: [Parallel, Spark, Python, MrJob, MapReduce, algorithm]
 ---
 {% include JB/setup %}
 ### Implemented in Apache Spark or Hadoop MrJob. <img src="/assets/imgs/avengers.jpg"  alt="The Incredibles friends from Pixar" width="20%"/>
